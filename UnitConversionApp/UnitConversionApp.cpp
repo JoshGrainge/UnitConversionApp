@@ -208,6 +208,7 @@ int main()
 	return 0;
 
 }
+#pragma region Display Functions
 
 void DisplayMenu()
 {
@@ -233,6 +234,8 @@ void DisplayUnitsInCategory(UnitCategories category)
 		cout << "[" << i << "] " << units[category][i] << endl;
 	}
 }
+
+#pragma endregion
 
 # pragma region ConversionLogic
 void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
