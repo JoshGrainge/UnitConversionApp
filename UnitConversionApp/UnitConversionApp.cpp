@@ -107,7 +107,7 @@ class Yard : public DistanceUnit
 public:
 	Yard(double amount) : DistanceUnit(amount)
 	{
-		kilometresMultiplier = 1.0/1094;
+		kilometresMultiplier = 1.0/1094.0;
 		metresMultiplier = 1.0/1.094;
 		centimetresMultiplier = 91.44;
 		milesMultiplier = 1.0/1760;
@@ -251,26 +251,31 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		// KM
 		case 0:
 			unit = Kilometre(amount);
+			unitOneSuffix = "km";
 			break;
 		
 		// M
 		case 1:
 			unit = Metre(amount);
+			unitOneSuffix = "m";
 			break;
 		
 		// CM
 		case 2:
 			unit = Centimetre(amount);
+			unitOneSuffix = "cm";
 			break;
 		
 		// Mi
 		case 3:
 			unit = Mile(amount);
+			unitOneSuffix = "mi";
 			break;
 		
 		// Yards
 		case 4:
 			unit = Yard(amount);
+			unitOneSuffix = "yd";
 			break;
 	}
 
@@ -280,26 +285,31 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		// to KM
 	case 0:
 		convertedAmount = unit.ConvertToKilometres();
+		unitTwoSuffix = "km";
 		break;
 
 		// to M
 	case 1:
 		convertedAmount = unit.ConvertToMetres();
+		unitTwoSuffix = "m";
 		break;
 
 		// to CM
 	case 2:
 		convertedAmount = unit.ConvertToCentimetres();
+		unitTwoSuffix = "cm";
 		break;
 
 		// to Mi
 	case 3:
 		convertedAmount = unit.ConvertToMiles();
+		unitTwoSuffix = "mi";
 		break;
 
 		// to Yards
 	case 4:
 		convertedAmount = unit.ConvertToYards();
+		unitTwoSuffix = "yd";
 		break;
 	}
 
