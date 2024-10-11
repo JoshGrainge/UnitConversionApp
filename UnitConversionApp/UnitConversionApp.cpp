@@ -150,7 +150,7 @@ int main()
 	cout << "Which measurement would you like to use?\n\n";
 
 	// Get first measurment
-	UnitCategories unitCategory = static_cast<UnitCategories>(unitCategoryInput - 1);
+	UnitCategories unitCategory = static_cast<UnitCategories>(unitCategoryInput);
 	DisplayUnitsInCategory(unitCategory);
 
 	cout << endl;
@@ -219,12 +219,12 @@ void DisplayMenu()
 
 void ChoiceMenu()
 {
-	cout << "[1] Distance\n"
-		<< "[2] Energy\n"
-		<< "[3] Mass\n"
-		<< "[4] Time\n"
-		<< "[5] Area\n"
-		<< "[6] Volume\n";
+	cout << "[0] Distance\n"
+		<< "[1] Energy\n"
+		<< "[2] Mass\n"
+		<< "[3] Time\n"
+		<< "[4] Area\n"
+		<< "[5] Volume\n";
 }
 
 void DisplayUnitsInCategory(UnitCategories category)
