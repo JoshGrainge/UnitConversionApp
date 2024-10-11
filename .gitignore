@@ -31,3 +31,4 @@
 *.out
 *.app
 /.vs/UnitConversionApp
+/UnitConversionApp/log.txt
