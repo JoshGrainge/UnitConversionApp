@@ -251,7 +251,7 @@ void DisplayUnitsInCategory(UnitCategories category)
 void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 {
 	DistanceUnit unit;
-	string unitOneSuffix, unitTwoSuffix;
+	string originalUnitSuffix, convertedUnitSuffix;
 	double convertedAmount = 0;
 
 	// TODO make this more elegant so that its not case 0. I don't want to make it strings either though due to spelling errors easily causing problems
@@ -261,31 +261,31 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		// KM
 		case 0:
 			unit = Kilometre(amount);
-			unitOneSuffix = "km";
+			originalUnitSuffix = "km";
 			break;
 		
 		// M
 		case 1:
 			unit = Metre(amount);
-			unitOneSuffix = "m";
+			originalUnitSuffix = "m";
 			break;
 		
 		// CM
 		case 2:
 			unit = Centimetre(amount);
-			unitOneSuffix = "cm";
+			originalUnitSuffix = "cm";
 			break;
 		
 		// Mi
 		case 3:
 			unit = Mile(amount);
-			unitOneSuffix = "mi";
+			originalUnitSuffix = "mi";
 			break;
 		
 		// Yards
 		case 4:
 			unit = Yard(amount);
-			unitOneSuffix = "yd";
+			originalUnitSuffix = "yd";
 			break;
 	}
 
@@ -295,31 +295,31 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		// to KM
 	case 0:
 		convertedAmount = unit.ConvertToKilometres();
-		unitTwoSuffix = "km";
+		convertedUnitSuffix = "km";
 		break;
 
 		// to M
 	case 1:
 		convertedAmount = unit.ConvertToMetres();
-		unitTwoSuffix = "m";
+		convertedUnitSuffix = "m";
 		break;
 
 		// to CM
 	case 2:
 		convertedAmount = unit.ConvertToCentimetres();
-		unitTwoSuffix = "cm";
+		convertedUnitSuffix = "cm";
 		break;
 
 		// to Mi
 	case 3:
 		convertedAmount = unit.ConvertToMiles();
-		unitTwoSuffix = "mi";
+		convertedUnitSuffix = "mi";
 		break;
 
 		// to Yards
 	case 4:
 		convertedAmount = unit.ConvertToYards();
-		unitTwoSuffix = "yd";
+		convertedUnitSuffix = "yd";
 		break;
 
 	default:
@@ -327,10 +327,10 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		break;
 	}
 	
-	cout << "The amount " << amount << unitOneSuffix << " equals " << convertedAmount << unitTwoSuffix << endl;
+	cout << "The amount " << amount << originalUnitSuffix << " equals " << convertedAmount << convertedUnitSuffix << endl;
 
 	// Log output to file
-	LogCalculation(amount, unitOneSuffix, convertedAmount, unitTwoSuffix);
+	LogCalculation(amount, originalUnitSuffix, convertedAmount, convertedUnitSuffix);
 }
 
 #pragma endregion
