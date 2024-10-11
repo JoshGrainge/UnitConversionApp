@@ -311,7 +311,12 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		convertedAmount = unit.ConvertToYards();
 		unitTwoSuffix = "yd";
 		break;
+
+	default:
+		cout << "Invalid entry entered" << endl;
+		break;
 	}
+
 
 	cout << "The amount " << amount << unitOneSuffix << " equals " << convertedAmount << unitTwoSuffix << endl;
 }
