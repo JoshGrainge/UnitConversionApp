@@ -132,7 +132,7 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount);
 
 int main()
 {
-	vector<string> distanceUnits = { "Kilometre", "Metre", "Centimetre", "Milimetre", "Mile", "Yard" };
+	vector<string> distanceUnits = { "Kilometre", "Metre", "Centimetre", "Mile", "Yard" };
 	units[Distance] = distanceUnits;
 
 	vector<string> massUnits = { "Kilograms", "Grams", "Miligrams", "Ounce", "Pound" };
