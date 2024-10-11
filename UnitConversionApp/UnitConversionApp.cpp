@@ -336,7 +336,7 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 
 #pragma endregion
 
-# #pragma region Logging Logic
+# pragma region Logging Logic
 
 void LogCalculation(double amount, string originalUnitSuffix, double convertedAmount, string convertedUnitSuffix)
 {
