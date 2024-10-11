@@ -3,6 +3,11 @@
 #include <cmath>
 #include <map>
 #include <vector>
+#include <fstream>
+
+#pragma region Classes
+
+#pragma region Distance Classes
 
 class DistanceUnit
 {
@@ -114,6 +119,9 @@ public:
 		yardsMultiplier = 1093.613298;
 	}
 };
+#pragma endregion
+
+#pragma endregion
 
 using namespace std;
 
@@ -129,6 +137,7 @@ void DisplayUnitsInCategory(UnitCategories category);
 
 void DistanceConversionLogic(int unitOne, int unitTwo, double amount);
 
+void LogCalculation(double amount, string originalUnitSuffix, double convertedAmount, string convertedUnitSuffix);
 
 int main()
 {
@@ -238,6 +247,7 @@ void DisplayUnitsInCategory(UnitCategories category)
 #pragma endregion
 
 # pragma region ConversionLogic
+
 void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 {
 	DistanceUnit unit;
@@ -316,9 +326,27 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 		cout << "Invalid entry entered" << endl;
 		break;
 	}
-
-
+	
 	cout << "The amount " << amount << unitOneSuffix << " equals " << convertedAmount << unitTwoSuffix << endl;
+
+	// Log output to file
+	LogCalculation(amount, unitOneSuffix, convertedAmount, unitTwoSuffix);
 }
 
 #pragma endregion
+
+void LogCalculation(double amount, string originalUnitSuffix, double convertedAmount, string convertedUnitSuffix)
+{
+	const string FILE_NAME = "log.txt";
+
+	ofstream logFile(FILE_NAME, ios::app);
+	
+	if (logFile.is_open())
+	{
+		logFile << "Original amount: " << amount << " " << originalUnitSuffix << ", converted amount: " << convertedAmount << " " << convertedUnitSuffix << endl;
+		logFile.close();
+		return;
+	}
+
+	cerr << "Log file cannot be opened. Output was not saved\n";
+}
