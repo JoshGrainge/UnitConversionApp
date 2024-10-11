@@ -217,6 +217,7 @@ int main()
 	return 0;
 
 }
+
 #pragma region Display Functions
 
 void DisplayMenu()
@@ -335,6 +336,8 @@ void DistanceConversionLogic(int unitOne, int unitTwo, double amount)
 
 #pragma endregion
 
+# #pragma region Logging Logic
+
 void LogCalculation(double amount, string originalUnitSuffix, double convertedAmount, string convertedUnitSuffix)
 {
 	const string FILE_NAME = "log.txt";
@@ -350,3 +353,5 @@ void LogCalculation(double amount, string originalUnitSuffix, double convertedAm
 
 	cerr << "Log file cannot be opened. Output was not saved\n";
 }
+
+#pragma endregion
